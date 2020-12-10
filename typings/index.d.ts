@@ -1,6 +1,7 @@
-import { Readable } from "stream";
 
 declare module 'soundcloud-scraper' {
+
+    import { Readable } from "stream";
 
     namespace SouncloudScraper {
         
@@ -79,7 +80,7 @@ declare module 'soundcloud-scraper' {
         /**
          * Cache
          */
-        function getStore(): Map;
+        function getStore(): Map<any, any>;
 
         /**
          * Returns stream url of a song
