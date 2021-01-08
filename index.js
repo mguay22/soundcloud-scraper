@@ -54,9 +54,9 @@ module.exports.getSongInfo = async (link, ops = { recommended: false, comments: 
     
     let obj = {
         id: sourceHTML.split('content="soundcloud://sounds:')[1].split('">')[0],
-        title: headerH1.children[0].textContent,
+        title: headerH1 ? headerH1.children[0].textContent : null,
         author: new User({
-            name: headerH1.children[1].textContent,
+            name: headerH1 ? headerH1.children[1].textContent : null,
             followers: parseInt(findFollowers[findFollowers.length - 1].split(',')[0]),
             createdAt: new Date(sourceHTML.split('"created_at":"')[sourceHTML.split('"created_at":"').length - 1].split('","')[0]),
             avatarURL: sourceHTML.split('"avatar_url":"')[sourceHTML.split('"avatar_url":"').length - 1].split('"')[0],
